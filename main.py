@@ -1,4 +1,4 @@
-"""Write the one-letter entry for make.fun's "One Letter for Your Day".
+"""v1.1: Write the one-letter entry for make.fun's "One Letter for Your Day".
 
 The entry is a single letter: the letter of the word that describes the
 day. Behind P sits "procrastinating" — the whole day spent putting
@@ -26,6 +26,7 @@ def output_path() -> Path:
 def main() -> None:
     path = output_path()
     path.write_text(LETTER, encoding="utf-8")
+    assert path.read_text(encoding="utf-8") == LETTER, "entry.txt round-trip mismatch"
     print(LETTER)
 
 
